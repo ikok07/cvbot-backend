@@ -42,8 +42,7 @@ class VectorStore:
     #     database=os.getenv("VECTOR_STORE_DATABASE")
     # )
     chroma_client = chromadb.HttpClient(
-        host=os.getenv("CHROMA_HOST"),
-        port=int(os.getenv("CHROMA_PORT")),
+        host=os.getenv("CHROMA_HOST")
     )
 
     embedding_function = OpenAIEmbeddingFunction(
