@@ -18,6 +18,10 @@ class Mailer:
             self.smtp_server.close()
 
     def send_email(self, from_addr: str, to_addr: str, subject: str, msg: str, html: str = None):
+        # If SMTP is disabled
+        if not self.smtp_server:
+            return
+
         message = MIMEMultipart("alternative")
         message["Subject"] = subject
         message["From"] = from_addr

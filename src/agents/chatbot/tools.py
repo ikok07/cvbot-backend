@@ -17,12 +17,12 @@ def send_notification_tool(text: str) -> CustomToolResponse:
     :param text: Message informing me about the specific question that couldn't be answered
     """
     try:
-        app_state.mailer.send_email(
-            from_addr=os.getenv("CHATBOT_NOTIFICATION_SENDER_EMAIL"),
-            to_addr=os.getenv("CHATBOT_NOTIFICATION_RECIPIENT_EMAIL"),
-            subject="Чатботът не разполага с някаква информация",
-            msg=text
-        )
+        # app_state.mailer.send_email(
+        #     from_addr=os.getenv("CHATBOT_NOTIFICATION_SENDER_EMAIL"),
+        #     to_addr=os.getenv("CHATBOT_NOTIFICATION_RECIPIENT_EMAIL"),
+        #     subject="Чатботът не разполага с някаква информация",
+        #     msg=text
+        # )
         return CustomToolResponse(data={"status": "success"}, sources=None)
     except Exception as e:
         return CustomToolResponse(data={"status": "fail", "error": e}, sources=None)

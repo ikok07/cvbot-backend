@@ -41,7 +41,7 @@ async def lifespan(app: FastAPI):
 
         app_state.redis_store.ping()
 
-        app_state.mailer = Mailer()
+        # app_state.mailer = Mailer()
 
         print("Application initialized")
         yield
